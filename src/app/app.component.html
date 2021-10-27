@@ -1,51 +1,36 @@
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">
-                <a href="/">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/">Flash Cards</a>
-                    </div>
-                </a>
-            </span>
-            <!-- Adding a search form  -->
-            <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="">
-                <input name="title" autocomplete="off" id="searching" class="form-control d-none d-md-block"
-                    placeholder="Search" />
-                <i class="spinner"></i>
-            </form>
-
-            <!-- search form end -->
-          
-            <span class="pull-right icons1">
-                <div class="btn-group">
-                  
-                    <button class="btn btn-secondary btn-sm dropdown-toggle profile-btn" type="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-user-circle"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href=""> <i class="far fa-user-circle icon"></i>Profile</a>
-                        <a class="dropdown-item" href=""> <i
-                                class="far fa-user-circle icon"></i>Change Password</a>
-                        <a class="dropdown-item" href=""><i class="fas fa-sign-out-alt icon"></i>Logout</a>
-                    </div>
-                
-                    <li>
-                        <a class='btn btn-default' href="">Login</a>
-                    </li>
-                    <li>
-                        <a class='btn btn-default' href="">Signup</a>
-                    </li>
-
-                    
-
-                </div>
-            </span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-all sticky-top ">
+      <div class="container-fluid">
+        <span class="navbar-brand brand-name">{{title}}</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/covid-stats">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/add-post" *ngIf="currentUser">Add Post</a>
+            </li>
+          </ul>
+          <span class=" form-inline my-2 my-lg-0 auth sign">
+            <a class="nav-link" routerLink="/login" *ngIf="currentUser == null"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;
+              Sign In</a>
+            <a class="nav-link" routerLink="/register" *ngIf="currentUser == null"><i class="fa fa-sign-up" aria-hidden="true"></i>&nbsp;
+              Sign Up</a>
+            <a class="nav-link" routerLink="/register" *ngIf="currentUser" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;
+              Sign Out</a>
+          </span>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success search-btn" type="submit">Search</button>
+          </form>
         </div>
+      </div>
     </nav>
 
     <div class="container">
       <router-outlet></router-outlet>
-      <app-flashcard></app-flashcard>
     </div>
