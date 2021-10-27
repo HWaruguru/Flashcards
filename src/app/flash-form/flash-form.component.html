@@ -1,0 +1,41 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<h2 class="text-center">Add Flash Card</h2>
+<hr />
+<form [formGroup]="authForm" (ngSubmit)="submitForm()">
+  <div class="form-row post-form">
+    <fieldset class="form-group col-md-6">
+      <label for="input4">Title</label>
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control"
+        id="input4"
+        placeholder="Title"
+      />
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+      <label for="input4">Notes</label>
+      <textarea formControlName="notes"
+      type="text"
+      class="form-control"
+      id="input4"
+      placeholder="Notes" rows="4" cols="50">
+        
+      </textarea>
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+      <label for="input4">Subject</label>
+      <input
+        formControlName="subject"
+        type="text"
+        class="form-control"
+        id="input4"
+        placeholder="Subject"
+      />
+    </fieldset>
+    <fieldset>
+      <button type="submit" class="btn btn-primary post-button">Submit</button>
+    </fieldset>
+  </div>
+</form>
+

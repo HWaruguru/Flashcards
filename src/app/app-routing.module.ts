@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
+import { FlashFormComponent } from './flash-form/flash-form.component';
 import { FlashcardComponent } from './flashcard/flashcard.component';
 
 const routes: Routes = [
   {path: 'home', component:  FlashcardComponent},
   {path: 'login', component: AuthComponent},
   {path: 'register', component: AuthComponent},
+  {path: 'add-flash', component: FlashFormComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

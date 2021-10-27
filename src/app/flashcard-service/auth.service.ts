@@ -7,6 +7,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  addFlash(title: string, notes: string, subject: string, dateCreated: Date, dateUpdated: Date): any {
+    throw new Error('Method not implemented.');
+  }
+  addPost(country: string, tests: string, cases: string, recovered: string, deaths: string, date_created: Date): any {
+    throw new Error('Method not implemented.');
+  }
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
   private baseURL = "https://covidstats19.herokuapp.com"
