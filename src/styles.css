@@ -1,2 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+html body {
+    font-size: 20px; 
+    background-color: #AFD5EB; 
+}
 
