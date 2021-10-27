@@ -5,7 +5,7 @@ import * as moment from "moment";
   name: 'dateCount'
 })
 export class DateCountPipe implements PipeTransform {
-    transform(date: string){
+    transform(date: Date){
         return moment(date).fromNow();
     }
 }

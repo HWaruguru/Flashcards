@@ -3,12 +3,12 @@ export class Flashcard {
     title: string;
     notes: string;
     subject: string;
-    dateCreated: string;
-    dateUpdated: string;
+    dateCreated: Date;
+    dateUpdated: Date;
    
    
     
-    constructor(id: number, title: string, notes: string, subject: string,dateCreated: string, dateUpdated: string) {
+    constructor(id: number, title: string, notes: string, subject: string,dateCreated: Date, dateUpdated: Date ) {
         this.id = id;
         this.title = title;
         this.notes = notes;

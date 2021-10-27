@@ -5,7 +5,7 @@
           <a class="nav-link linkp" aria-current="page" href="/">All</a>
         </li>
         <li class="nav-item tabp">
-          <a class="nav-link linkp" href="">Computer Science</a>
+          <a class="nav-link linkp" href="">Mathematics</a>
         </li>
         <li class="nav-item tabp">
           <a class="nav-link linkp" href="">English</a>
@@ -33,16 +33,18 @@
     <div class="col-md-12">
       <div class="countries">
         <div class="card mb-3" *ngFor="let flashcard of flashcards; let i = index">
-          <div class="card-header bg-transparent">
-            {{ flashcard.title}}
-          </div>
+          <h4 class="card-header bg-transparent">
+            <strong>{{ flashcard.title}}</strong>
+          </h4>
           <div class="card-body">
             <p class="card-text">{{ flashcard.notes}}</p>
           </div>
-          <div class="card-footer bg-transparent post-footer"><p class="card-text">{{ flashcard.subject }}</p></div>
+          <div class="card-footer bg-transparent post-footer"><p class="card-text"><strong>Subject:</strong> {{ flashcard.subject }}</p></div>
           <div class="card-footer bg-transparent post-footer">
-            <p>Posted {{ flashcard.dateCreated | dateCount }}</p>
-            <p>Posted {{ flashcard. dateUpdated | dateCount }}</p>
+            <p><small class="text-muted"><strong>Created: </strong>{{ flashcard.dateCreated | dateCount }}</small></p>
+          </div>
+          <div class="card-footer bg-transparent post-footer">
+            <p><small class="text-muted"><strong>Updated:</strong> {{ flashcard.dateUpdated | dateCount }}</small></p>
      
           </div>
         </div>
