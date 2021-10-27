@@ -6,6 +6,15 @@
     color: black;
 }
 
+.title1:hover {
+    color: #1073E5 !important;
+}
+
+.title1 {
+    text-decoration: none;
+    color: black;
+}
+
 .navbar.scrolled {
     background-color: #fff !important;
     transition: background-color 200ms linear;

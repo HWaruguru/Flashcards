@@ -47,6 +47,11 @@
             <p><small class="text-muted"><strong>Updated:</strong> {{ flashcard.dateUpdated | dateCount }}</small></p>
      
           </div>
+          <div class="card-footer bg-transparent post-footer">
+            <a (click)="deleteFlashCard(flashcard.id)"><i class="fa fa-fw fa-trash delete"></i></a>
+            <a (click)="updateFlashCard(flashcard.id)" class="update">Update</a>
+          </div>
+          
         </div>
       </div>
     </div>

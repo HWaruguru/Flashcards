@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Flashcard } from '../flashcard';
+import { AuthService } from '../flashcard-service/auth.service';
 
 @Component({
   selector: 'app-flashcard',
@@ -75,8 +77,7 @@ export class FlashcardComponent implements OnInit {
       new Date(2021, 9, 25)
     ),
   ];
-
-  constructor() {}
+  constructor(private authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {}
 
@@ -85,5 +86,15 @@ export class FlashcardComponent implements OnInit {
     this.flashcards = this.allflashcards.filter(
       (card) => card.subject == subject
     );
+  }
+
+  async deleteFlashCard(flashcard_id: number) {
+    await this.authService.deleteFlashCard(flashcard_id)
+    this.route.navigate(['/home'])
+  }
+
+  async updateFlashCard(flashcard_id: number) {
+    await this.authService.updateFlashCard(flashcard_id)
+    this.route.navigate(['/home'])
   }
 }

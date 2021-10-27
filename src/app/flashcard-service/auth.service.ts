@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Flashcard } from '../flashcard';
 
 
 @Injectable({
@@ -67,4 +68,36 @@ export class AuthService {
     this.currentUserSubject.next(null);
   }
 
+  deleteFlashCard(flashcard_id: number): Promise<Flashcard> {
+    const url = `${this.baseURL}/post/${flashcard_id}`;
+    let promise = new Promise<Flashcard>((resolve, reject) => {
+      this.http
+      .delete<any>(url, ({headers: new HttpHeaders({ "x-access-token": `${this.currentUserValue.token}`})}))
+      .toPromise()
+      .then(
+        res => {
+          resolve(res);
+        },
+        error => {
+          reject(error.error.message)
+        })
+    })
+    return promise
+  }
+  updateFlashCard(flashcard_id: number): Promise<Flashcard> {
+    const url = `${this.baseURL}/post/${flashcard_id}`;
+    let promise = new Promise<Flashcard>((resolve, reject) => {
+      this.http
+      .delete<any>(url, ({headers: new HttpHeaders({ "x-access-token": `${this.currentUserValue.token}`})}))
+      .toPromise()
+      .then(
+        res => {
+          resolve(res);
+        },
+        error => {
+          reject(error.error.message)
+        })
+    })
+    return promise
+  }
 }
